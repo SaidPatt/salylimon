@@ -1,0 +1,26 @@
+@import url(vars.css);
+
+#glow {
+    filter: drop-shadow(0 0 20px var(--yellow));
+}
+
+.carousel-image{
+    width: 100%;
+    height: 35vw;
+    object-fit: cover;
+}
+.carousel-container{
+    display: flex;
+    width: 100%;
+}
+.carousel-cont{
+    flex: 6;
+}
+.carousel-text{
+    flex: 2;
+    text-align: center;
+    align-content: center;
+}
+.carousel-text h3 {
+    overflow: hidden;
+}

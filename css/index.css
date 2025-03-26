@@ -1,0 +1,146 @@
+/* Import a font from Google */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Satisfy&display=swap');
+@import url(vars.css);
+
+body{
+    margin: 0;
+    height: 100vh;
+    padding: 0px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    overflow: scroll;
+    background-color: var(--blue) !important;
+    overflow-x: hidden;
+}
+#logoContainer{
+    background-image: linear-gradient(90deg, var(--green), var(--blue));
+    height: 100%;
+    flex: 5;
+    text-align: center;
+    align-content: center;
+}
+#businessLogo{
+    width: min(450px, 75%);
+}
+#loginCardContainer{
+    flex: 6;
+    height: 100%;
+    align-content: center;
+}
+#loginCard{
+    border: white  2px solid;
+    width: 65%;
+    border-radius: 16px;
+    padding: min(8%, 16px);
+    color: white;
+    font-family: 'Satisfy';
+    text-align: center;
+    background-image: linear-gradient(#E93B81, #B6C9F0);
+    /* box-shadow: 4px 0 4px var(--yellow), 0 0 20px  var(--yellow), 0 0 30px var(--yellow); */
+    transition: box-shadow 0.3s ease-in-out; 
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+h3{
+    font-size: clamp(2rem, 3vw, 4rem);
+    margin: 0;
+    animation: fadeIn 5s ease-in-out;
+    animation-iteration-count: infinite;
+}
+#businessName{
+    font-size: clamp(1.25rem, 2vw,3rem);
+    display: block;
+}
+#businessMotto{
+    font-size: clamp(1rem, 1.25vw, 2.5rem);
+    display: block;
+    margin-top: min(12px, 4%);
+}
+#accessButton{
+    width: min(300px, 35%);
+    height: min(100px, 24%);
+    border-radius: 12px;
+    margin-top: 16px;
+    padding: 8px;
+    cursor: pointer;
+    animation: bounce 2s ease-in-out;
+    animation-iteration-count: infinite;
+    background-color: var(--blue);
+    font-size: clamp(0.75rem, 1.25vw,2.5rem);
+    color: white;
+    font-weight: bold;
+    border: rgb(255, 255, 255) 2px solid;
+    min-width: 75px;
+}
+#accessButton:hover{
+    animation-play-state: paused;
+}
+
+/* Key frames to add animations to elements */
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    30% {
+        transform: translateY(-10px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    70% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+/* Animation for Welcome */
+@keyframes fadeIn{
+    0% {
+        opacity: 0; 
+        transform: translateX(-40%); 
+    }
+    100% {
+        opacity: 1; 
+        transform: translateX(0); 
+    }
+}
+
+/* Media query to ensure responsive design on extra small screens */
+@media(width<=576px){
+    body{
+        flex-direction: column;
+    }
+    #logoContainer{
+        background-image: linear-gradient( #4E8BC4,turquoise, #ecf2fbf5);
+    }
+    #loginCardContainer{
+        padding: 10%;
+    }
+    #loginCard{
+        width: 90%;
+    }
+}
+/* Media query to adjust to largest screens */
+ @media (width>=1250px) {
+    #businessLogo {
+        width: 38vw; 
+    }
+    #loginCard {
+        width: 35vw; 
+    }
+    h3 {
+        font-size: 4vw;
+    }
+    #businessName {
+        font-size: 2.5vw;
+    }
+    #businessMotto {
+        font-size: 2vw;
+    }
+    #accessButton {
+        width: 15vw;
+        font-size: 1vw; 
+    } 
+} 

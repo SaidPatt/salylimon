@@ -1,0 +1,138 @@
+/* Import a font from Google */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Satisfy&display=swap');
+@import url(vars.css);
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    position: relative;
+    overflow-x: hidden;
+}
+header{
+    background-color: var(--blue);
+    padding: min(24px, 4%);
+    font-family: 'Pacifico';
+    font-size: clamp(2rem, 12vw, 4.5rem);
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+#header-logo {
+    width: 12vw;
+    min-width: 125px;
+}
+#name-container{
+    text-align: center;
+}
+#header-motto{
+    font-size: clamp(1rem, 2vw, 2rem);
+}
+.nav-container{
+    position: sticky;
+    top: 0px;
+    background-color: red;
+    z-index: 2;
+}
+nav {
+    position: sticky;
+    top: 0;
+    width: 100vw;
+    height: auto;
+    background-color: var(--blue);
+    display: flex;
+    flex-direction: row;
+    border: none; 
+    border-bottom: 5px solid var(--pink);
+}
+
+nav ul {
+    padding: 10px 30px;
+    width: 100%;
+    display: flex;
+    list-style-type: none;
+    text-align: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    color: white !important;
+}
+
+nav ul img {
+    align-content: center;
+    height: 20px;
+    margin-right: 10px;
+    padding: 0;
+}
+
+nav ul li {
+    align-content: center;
+    color: white !important;
+    transition: 500ms;
+    font-size: 20px;
+}
+
+nav ul li:hover {
+    scale: 1.1;
+    transition: 500ms;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Times New Roman', Times, serif;
+}
+/* Footer Css */
+.footer-cont{
+    display: flex;
+    padding: min(24px, 5%);
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: white;
+}
+.info-container{
+    flex: 6;
+    text-align: center;
+}
+.contact-container{
+    flex: 3;
+}
+
+.contact-container li a {
+    text-decoration: none;
+    color: white;
+}
+
+.contact-container li {
+    scale: 1;
+    transition: 500ms;
+}
+
+.contact-container li:hover {
+    scale: 1.1;
+    filter: drop-shadow(0 0 15px white);
+    transition: 500ms;
+}
+
+.copy-right{
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 12px;
+}
+ul{
+    list-style: none;
+}
+.footer-icon{
+    width:2vw;
+}
+
+.footer-icon {
+    margin: 10px 0;
+    margin-right: 10px;
+}
