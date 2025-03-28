@@ -144,3 +144,24 @@ h3{
         font-size: 1vw; 
     } 
 } 
+
+@media (width<=578px) {
+    #logoContainer {
+    width: 100vw;
+    background-image: linear-gradient(180deg, var(--green), var(--blue));
+    height: 100%;
+    flex: 5;
+    text-align: center;
+    align-content: center;
+    }
+
+    #loginCardContainer {
+        width: 80vw;
+    }
+
+    #loginCard {
+        height: 80%;
+        align-content: center;
+    }
+
+}

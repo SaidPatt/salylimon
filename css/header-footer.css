@@ -3,6 +3,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Satisfy&display=swap');
 @import url(vars.css);
 
+#glow {
+    filter: drop-shadow(0 0 20px var(--yellow));
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -22,9 +26,10 @@ header{
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
+    z-index: 10;
 }
 #header-logo {
-    width: 12vw;
+    width: 14vw;
     min-width: 125px;
 }
 #name-container{
@@ -49,6 +54,7 @@ nav {
     flex-direction: row;
     border: none; 
     border-bottom: 5px solid var(--pink);
+    z-index: 99;
 }
 
 nav ul {
@@ -60,6 +66,7 @@ nav ul {
     justify-content: space-between;
     flex-wrap: wrap;
     color: white !important;
+    align-content: center;
 }
 
 nav ul img {
@@ -135,4 +142,76 @@ ul{
 .footer-icon {
     margin: 10px 0;
     margin-right: 10px;
+}
+
+span.current-page {
+    color: var(--pink);
+}
+
+#grow {
+    scale: 1;
+    transition: 500ms;
+}
+
+#grow:hover {
+    scale: 1.1;
+    transition: 500ms;
+}
+
+@media (width<=600px) {
+    body {
+        width: 100vw;
+        overflow-x: hidden;
+    }
+    header{
+        width: 100vw;
+        background-color: var(--blue);
+        padding: min(24px, 4%);
+        font-family: 'Pacifico';
+        font-size: clamp(2rem, 12vw, 4.5rem);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .footer-cont{
+        display: flex;
+        flex-direction: column;
+        padding: min(24px, 5%);
+        justify-content: space-between;
+        align-items: center;
+        background-color: black;
+        color: white;
+    }
+
+    .footer-icon{
+        width:5vw;
+    }
+    
+    .footer-icon {
+        margin: 10px 0;
+        margin-right: 10px;
+    }
+
+    .contact-container{
+        flex: 3;
+    }
+    
+    .contact-container li a {
+        text-decoration: none;
+        color: white;
+    }
+    
+    .contact-container li {
+        scale: 1;
+        transition: 500ms;
+    }
+    
+    .contact-container li:hover {
+        scale: 1.1;
+        filter: drop-shadow(0 0 15px white);
+        transition: 500ms;
+    }
 }

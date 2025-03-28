@@ -1,9 +1,5 @@
 @import url(vars.css);
 
-#glow {
-    filter: drop-shadow(0 0 20px var(--yellow));
-}
-
 .carousel-image{
     width: 100%;
     height: 35vw;
@@ -17,10 +13,85 @@
     flex: 6;
 }
 .carousel-text{
+    background-color: var(--green);
     flex: 2;
     text-align: center;
     align-content: center;
 }
 .carousel-text h3 {
     overflow: hidden;
+}
+
+.promotions-section {
+    display: flex;
+    flex-direction: column;
+    margin: 50px 0;
+}
+
+.promotions-section h2 {
+    text-align: center;
+}
+
+.promotions-section h3 {
+    text-align: center;
+}
+
+#promotions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#promotions div {
+    height: auto;
+    width: 20vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: var(--gutter);
+    padding: 20px;
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.333));
+    overflow: hidden;
+    justify-content: space-between;
+    transition: height 0.3s ease, width 0.3s ease; 
+}
+
+#promotions div:hover {
+    height: auto;
+    width: 33vw;
+    flex-direction: column;
+}
+
+#promotions div p {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+#promotions div:hover p {
+    opacity: 1;
+    max-height: 100px;
+    display: flex;
+}
+
+#promotions div img {
+    height: 10vh;
+}
+
+#easter-promo {
+    background-color: var(--pink);
+}
+
+#summer-promo {
+    background-color: var(--yellow);
+}
+
+#anniversary-promo {
+    background-color: var(--green);
+}
+
+.carousel-container {
+    z-index: 1 !important;
 }
