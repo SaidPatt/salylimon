@@ -1,4 +1,188 @@
-div.location {
-    width: 100vw;
+@import url(vars.css);
+
+.page-title {
+    text-align: center;
+    align-content: center;
+}
+
+.page-title h1 {
+    font-family: var(--curly);
+    font-size: 11rem;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 0, 0.8) 0%,
+        rgba(224, 23, 157, 0.5) 50%,
+        rgba(0, 0, 0, 0) 100% 
+    ),
+    url('/salylimon/assets/images/dayclubvibes.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    -webkit-background-clip: text; 
+    background-clip: text; 
+    -webkit-text-fill-color: transparent;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); 
+    margin: 5rem 0;
+    filter: drop-shadow(10px 10px 10px black);
+}
+
+.location {
+    margin: 20px;
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
     text-align: center;
 }
+
+.location section {
+    display: flex;
+    flex-direction: row;
+}
+
+.location article {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    flex-basis: 70%;
+    filter:  drop-shadow(5px 5px 5px var(--blue)) drop-shadow(-5px -5px 5px var(--green));
+}
+
+.location figure {
+    max-height: 100%;
+    width: auto;
+    flex: 2;
+    flex-basis: 30%;
+    padding: 5%;
+    margin: 0;  
+    align-content: center;
+}
+
+.location figure img {
+    height: auto;
+    width: auto;
+    max-width: 100%;
+}
+
+.story {
+    width: 100%; 
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+.story section {
+    height: auto;
+    max-height: none; 
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+}
+
+.story figure {
+    position: relative; 
+    width: 100%;
+    max-width: 100%; 
+    height: 70vh; 
+    margin: 0;
+    text-align: center;
+}
+
+.story figure img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    mask-image: linear-gradient(transparent 20%, white 50%, transparent 90%); /* Fade effect */
+    -webkit-mask-image: linear-gradient(transparent 20%, white 50%, transparent 90%); /* For Webkit browsers */
+}
+
+.story figure div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFFFFF; 
+    background-color: rgba(0, 0, 0, 0.7); 
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 80%; 
+    font-size: 16px; 
+    scale: 1;
+    transition: 1s;
+}
+
+.story:hover figure div {
+    font-size: 20px; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 1s;
+}
+
+
+.mission{
+    margin: 20px;
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+}
+
+.vision{
+    margin: 20px;
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+}
+
+.mission figure, .vision figure{
+    flex: 1;
+    flex-basis: 30%;
+}
+
+.mission figure img , .vision figure img{
+    max-width: 100%;
+    width: auto;
+}
+
+
+.mission figure img {
+    filter: drop-shadow(10px 10px 10px var(--green)) drop-shadow(-10px -10px 10px var(--yellow))
+}
+
+.vision figure img {
+    filter: drop-shadow(10px 10px 10px var(--pink)) drop-shadow(-10px -10px 10px var(--green))
+}
+
+.mission article, .vision article {
+    flex: 2;
+    flex-basis: 70%;
+}
+
+h3 {
+    font-family: var(--curly);
+    font-size: 30px;
+    text-decoration: wavy underline;
+    text-decoration-color: var(--pink);
+    text-decoration-line: solid;
+}
+
+#mission, #vision {
+    padding: 10px;
+}
+
+div audio {
+    border-style: solid;
+    border-color: var(--pink);
+    border-radius: var(--gutter);
+}
+

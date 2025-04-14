@@ -16,6 +16,11 @@ body{
     position: relative;
     overflow-x: hidden;
 }
+
+html, body {
+    width: 100% !important; 
+}
+
 header{
     background-color: var(--blue);
     padding: min(24px, 4%);
@@ -42,12 +47,12 @@ header{
     position: sticky;
     top: 0px;
     background-color: red;
-    z-index: 2;
+    z-index: 10;
 }
 nav {
     position: sticky;
     top: 0;
-    width: 100vw;
+    width: 100%;
     height: auto;
     background-color: var(--blue);
     display: flex;
@@ -120,9 +125,21 @@ nav ul li a {
     transition: 500ms;
 }
 
-.contact-container li:hover {
+.contact-container li:hover:first-child {
     scale: 1.1;
-    filter: drop-shadow(0 0 15px white);
+    filter: drop-shadow(10px 10px 15px white) drop-shadow(-10px -10px 15px #4267B2);
+    transition: 500ms;
+}
+
+.contact-container li:hover:nth-child(2) {
+    scale: 1.1;
+    filter: drop-shadow(10px 10px 15px white) drop-shadow(-10px -10px 15px #278D46);
+    transition: 500ms;
+}
+
+.contact-container li:hover:nth-child(3) {
+    scale: 1.1;
+    filter: drop-shadow(10px 10px 15px white) drop-shadow(-10px -10px 15px #8C35BC);
     transition: 500ms;
 }
 
