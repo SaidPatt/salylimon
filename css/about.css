@@ -73,6 +73,11 @@
     margin: 20px 0;
 }
 
+.story:hover figure img {
+    opacity: 1;
+    transition: 1s;
+}
+
 .story section {
     height: auto;
     max-height: none; 
@@ -91,11 +96,13 @@
 }
 
 .story figure img {
+    opacity: 0;
     width: 100%; 
     height: 100%; 
     object-fit: cover; 
     mask-image: linear-gradient(transparent 20%, white 50%, transparent 90%); /* Fade effect */
     -webkit-mask-image: linear-gradient(transparent 20%, white 50%, transparent 90%); /* For Webkit browsers */
+    transition: 0.5s;
 }
 
 .story figure div {
@@ -110,7 +117,7 @@
     max-width: 80%; 
     font-size: 16px; 
     scale: 1;
-    transition: 1s;
+    transition: 0.5s;
 }
 
 .story:hover figure div {
@@ -156,16 +163,28 @@
 
 
 .mission figure img {
-    filter: drop-shadow(10px 10px 10px var(--green)) drop-shadow(-10px -10px 10px var(--yellow))
+    filter: drop-shadow(10px 10px 10px var(--green)) drop-shadow(-10px -10px 10px var(--yellow));
+    transition: 0.5s;
 }
 
 .vision figure img {
-    filter: drop-shadow(10px 10px 10px var(--pink)) drop-shadow(-10px -10px 10px var(--green))
+    filter: drop-shadow(10px 10px 10px var(--pink)) drop-shadow(-10px -10px 10px var(--green));
+    transition: 0.5s;
+}
+
+.mission:hover figure img {
+    filter: drop-shadow(10px 10px 10px var(--pink)) drop-shadow(-10px -10px 10px var(--green));
+    transition: 1s;
+}
+.vision:hover figure img {
+    filter: drop-shadow(10px 10px 10px var(--green)) drop-shadow(-10px -10px 10px var(--yellow));
+    transition: 1s;
 }
 
 .mission article, .vision article {
     flex: 2;
     flex-basis: 70%;
+    transition: 0.5s;
 }
 
 h3 {
@@ -185,4 +204,12 @@ div audio {
     border-color: var(--pink);
     border-radius: var(--gutter);
 }
+
+.mission:hover article, .vision:hover article {
+    flex: 2;
+    flex-basis: 50%;
+    font-size: 1.2rem;
+    transition: 1s;
+}
+
 

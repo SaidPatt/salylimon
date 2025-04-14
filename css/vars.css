@@ -8,3 +8,20 @@
     --gutter: 50px;
     --curly: "Oleo Script", system-ui;
 }
+
+
+#highlight1 {
+    color: var(--pink);
+}
+
+#highlight2 {
+    text-shadow: var(--blue) 0px 0px 10px;
+}
+
+#highlight3 {
+    text-shadow: var(--green) 0px 0px 10px;
+}
+
+#highlight4 {
+    text-shadow: var(--yellow) 0px 0px 10px;
+}
