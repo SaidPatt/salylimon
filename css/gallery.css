@@ -1,0 +1,180 @@
+@import url(vars.css);
+
+/* Gallery Section Styles */
+.gallery-section {
+    background-color: #000000; /* Black background, consistent with your site */
+    padding: var(--gutter); /* 50px padding using theme variable */
+    min-height: 100vh; /* Ensure full viewport height */
+    position: relative; /* For decorative border */
+}
+
+.gallery-section::before,
+.gallery-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: var(--gutter); /* 50px border width */
+    background: linear-gradient(var(--pink), var(--yellow), var(--green), var(--blue)); /* Colorful gradient border */
+    z-index: 1;
+}
+
+.gallery-section::before {
+    left: 0;
+}
+
+.gallery-section::after {
+    right: 0;
+}
+
+.gallery-section .section-content {
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    border: 3px solid var(--yellow); /* Yellow border */
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #FFFFFF;
+    position: relative;
+    z-index: 2; /* Above decorative border */
+}
+
+.gallery-section h2 {
+    color: var(--pink); /* Pink heading */
+    font-family: var(--curly); /* Oleo Script font */
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-section p {
+    color: #FFFFFF;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Gallery Grid Styles */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    gap: 8px;
+    height: 80vh; /* Fixed height for consistent grid layout */
+}
+
+.grid-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    border: 2px solid var(--blue); /* Blue border for images */
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.grid-item:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    border-color: var(--pink); /* Pink border on hover */
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure images scale properly */
+    display: block;
+}
+
+/* Grid Item Positions (from provided CSS) */
+.div1 {
+    grid-column: span 2 / span 2;
+    grid-row: span 5 / span 5;
+}
+
+.div2 {
+    grid-row: span 3 / span 3;
+    grid-column-start: 3;
+}
+
+.div3 {
+    grid-row: span 3 / span 3;
+    grid-column-start: 4;
+}
+
+.div4 {
+    grid-row: span 3 / span 3;
+    grid-column-start: 5;
+}
+
+.div5 {
+    grid-column: span 2 / span 2;
+    grid-row: span 2 / span 2;
+    grid-column-start: 3;
+    grid-row-start: 4;
+}
+
+.div6 {
+    grid-row: span 3 / span 3;
+    grid-column-start: 6;
+    grid-row-start: 1;
+}
+
+.div7 {
+    grid-column: span 2 / span 2;
+    grid-row: span 2 / span 2;
+    grid-column-start: 5;
+    grid-row-start: 4;
+}
+
+.div8 {
+    grid-column: span 2 / span 2;
+    grid-row: span 3 / span 3;
+    grid-row-start: 6;
+}
+
+.div10 {
+    grid-column: span 2 / span 2;
+    grid-row: span 3 / span 3;
+    grid-column-start: 3;
+    grid-row-start: 6;
+}
+
+.div11 {
+    grid-column: span 2 / span 2;
+    grid-row: span 3 / span 3;
+    grid-column-start: 5;
+    grid-row-start: 6;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .gallery-section {
+        padding: calc(var(--gutter) / 2); /* 25px padding on mobile */
+    }
+
+    .gallery-section::before,
+    .gallery-section::after {
+        width: calc(var(--gutter) / 2); /* 25px border width on mobile */
+    }
+
+    .gallery-section .section-content {
+        padding: 20px;
+    }
+
+    .gallery-section h2 {
+        font-size: 36px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr); /* Simplify grid for mobile */
+        grid-template-rows: auto; /* Let rows adjust automatically */
+        height: auto; /* Remove fixed height for mobile */
+    }
+
+    .grid-item {
+        grid-column: span 1 !important; /* Override spans for mobile */
+        grid-row: span 1 !important; /* Override spans for mobile */
+        grid-column-start: auto !important;
+        grid-row-start: auto !important;
+        aspect-ratio: 1 / 1; /* Square aspect ratio for consistency */
+    }
+}

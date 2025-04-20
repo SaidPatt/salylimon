@@ -1,0 +1,185 @@
+@import url(vars.css);
+
+.reservations-section {
+    background-color: #000000; 
+    padding: var(--gutter); 
+    min-height: 100vh; 
+    position: relative; 
+}
+
+.reservations-section::before,
+.reservations-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: var(--gutter); 
+    background: linear-gradient(var(--pink), var(--yellow), var(--green), var(--blue));
+    z-index: 1;
+}
+
+.reservations-section::before {
+    left: 0;
+}
+
+.reservations-section::after {
+    right: 0;
+}
+
+.reservations-section .section-content {
+    background-color: rgba(0, 0, 0, 0.8); 
+    border: 3px solid var(--yellow); 
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 800px; 
+    margin: 0 auto;
+    color: #FFFFFF;
+    position: relative;
+    z-index: 2;
+}
+
+.reservations-section h2 {
+    color: var(--pink); 
+    font-family: var(--curly);
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.reservations-section p {
+    color: #FFFFFF;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.reservation-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    color: var(--green); 
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    background-color: #1A1A1A; 
+    border: 2px solid var(--blue); 
+    border-radius: 5px;
+    padding: 10px;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-family: 'Georgia', serif;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--pink);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.submit-btn {
+    background-color: var(--green); 
+    color: #FFFFFF;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-family: 'Georgia', serif;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: var(--pink); 
+    transform: scale(1.05);
+}
+
+
+.reservation-policies {
+    background-color: #1A1A1A; 
+    border: 2px solid var(--blue);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.reservation-policies h3 {
+    color: var(--yellow); 
+    font-family: var(--curly); 
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.reservation-policies ul {
+    list-style: none;
+    padding: 0;
+}
+
+.reservation-policies li {
+    color: #FFFFFF;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.reservation-policies li strong {
+    color: var(--pink); 
+}
+
+
+@media (max-width: 768px) {
+    .reservations-section {
+        padding: calc(var(--gutter) / 2); 
+    }
+
+    .reservations-section::before,
+    .reservations-section::after {
+        width: calc(var(--gutter) / 2); 
+    }
+
+    .reservations-section .section-content {
+        padding: 20px;
+    }
+
+    .reservations-section h2 {
+        font-size: 36px;
+    }
+
+    .reservation-policies h3 {
+        font-size: 24px;
+    }
+
+    .form-group label {
+        font-size: 16px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 14px;
+    }
+
+    .submit-btn {
+        font-size: 16px;
+    }
+}
