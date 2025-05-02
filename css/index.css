@@ -34,7 +34,7 @@ body{
     border-radius: 16px;
     padding: min(8%, 16px);
     color: white;
-    font-family: 'Satisfy';
+    font-family: var(--curly);
     text-align: center;
     background-image: linear-gradient(#E93B81, #B6C9F0);
     /* box-shadow: 4px 0 4px var(--yellow), 0 0 20px  var(--yellow), 0 0 30px var(--yellow); */
@@ -45,7 +45,7 @@ body{
 h3{
     font-size: clamp(2rem, 3vw, 4rem);
     margin: 0;
-    animation: fadeIn 5s ease-in-out;
+    animation: bounce 5s ease-in-out;
     animation-iteration-count: infinite;
 }
 #businessName{
@@ -67,6 +67,7 @@ h3{
     animation: bounce 2s ease-in-out;
     animation-iteration-count: infinite;
     background-color: var(--blue);
+    font-family: 'Times New Roman', Times, serif;
     font-size: clamp(0.75rem, 1.25vw,2.5rem);
     color: white;
     font-weight: bold;

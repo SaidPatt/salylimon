@@ -1,58 +1,65 @@
+/* /salylimon/css/gallery.css */
+
+/* Import variables */
 @import url(vars.css);
 
 /* Gallery Section Styles */
 .gallery-section {
-    background-color: #000000; /* Black background, consistent with your site */
-    padding: var(--gutter); /* 50px padding using theme variable */
-    min-height: 100vh; /* Ensure full viewport height */
-    position: relative; /* For decorative border */
+    background: #F5F5F5; /* Light gray base, consistent with menu and reservations */
+    padding: 70px 30px;
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
-.gallery-section::before,
-.gallery-section::after {
+/* Subtle papel picado-inspired background pattern */
+.gallery-section::before {
     content: '';
     position: absolute;
     top: 0;
+    left: 0;
+    right: 0;
     bottom: 0;
-    width: var(--gutter); /* 50px border width */
-    background: linear-gradient(var(--pink), var(--yellow), var(--green), var(--blue)); /* Colorful gradient border */
+    background: url('/salylimon/assets/images/papel-picado-pattern.png') repeat;
+    opacity: 0.05; /* Very subtle */
+    z-index: 0;
+}
+
+.section-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
     z-index: 1;
 }
 
-.gallery-section::before {
-    left: 0;
-}
-
-.gallery-section::after {
-    right: 0;
-}
-
-.gallery-section .section-content {
-    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
-    border: 3px solid var(--yellow); /* Yellow border */
-    border-radius: 10px;
-    padding: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-    color: #FFFFFF;
-    position: relative;
-    z-index: 2; /* Above decorative border */
-}
-
 .gallery-section h2 {
-    color: var(--pink); /* Pink heading */
+    color: var(--pink);
     font-family: var(--curly); /* Oleo Script font */
-    font-size: 48px;
+    font-size: 58px;
     text-align: center;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.gallery-section h2::after {
+    content: '';
+    display: block;
+    width: 220px;
+    height: 5px;
+    background: linear-gradient(to right, var(--yellow), var(--blue));
+    margin: 10px auto;
+    border-radius: 2px;
 }
 
 .gallery-section p {
-    color: #FFFFFF;
-    font-size: 16px;
+    color: #333333; /* Dark gray for readability */
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 /* Gallery Grid Styles */
@@ -60,31 +67,48 @@
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(8, 1fr);
-    gap: 8px;
-    height: 80vh; /* Fixed height for consistent grid layout */
+    gap: 10px; /* Slightly increased gap */
+    height: 80vh; /* Fixed height for consistent layout */
+    margin-top: 20px;
 }
 
 .grid-item {
     position: relative;
     overflow: hidden;
-    border-radius: 5px;
-    border: 2px solid var(--blue); /* Blue border for images */
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    border-radius: 8px; /* Slightly larger radius */
+    border: 4px double var(--blue); /* Tile-like border */
+    background: #FFFFFF; /* White background for contrast */
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Add a subtle tile-like border detail */
+.grid-item::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 1px solid var(--green);
+    border-radius: 8px;
+    opacity: 0.3;
+    z-index: -1;
 }
 
 .grid-item:hover {
     transform: scale(1.05); /* Slight zoom on hover */
-    border-color: var(--pink); /* Pink border on hover */
+    border-color: var(--pink);
+    box-shadow: 0 5px 15px rgba(224, 23, 158, 0.3); /* Subtle pink glow */
 }
 
 .grid-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensure images scale properly */
+    object-fit: cover;
     display: block;
 }
 
-/* Grid Item Positions (from provided CSS) */
+/* Grid Item Positions (unchanged from original) */
 .div1 {
     grid-column: span 2 / span 2;
     grid-row: span 5 / span 5;
@@ -151,30 +175,47 @@
         padding: calc(var(--gutter) / 2); /* 25px padding on mobile */
     }
 
-    .gallery-section::before,
-    .gallery-section::after {
-        width: calc(var(--gutter) / 2); /* 25px border width on mobile */
-    }
-
-    .gallery-section .section-content {
-        padding: 20px;
-    }
-
     .gallery-section h2 {
-        font-size: 36px;
+        font-size: 46px;
+    }
+
+    .gallery-section h2::after {
+        width: 160px;
     }
 
     .gallery-grid {
-        grid-template-columns: repeat(2, 1fr); /* Simplify grid for mobile */
-        grid-template-rows: auto; /* Let rows adjust automatically */
-        height: auto; /* Remove fixed height for mobile */
+        grid-template-columns: repeat(2, 1fr); /* Simplify to 2 columns */
+        grid-template-rows: auto; /* Adjust rows dynamically */
+        height: auto; /* Remove fixed height */
     }
 
     .grid-item {
-        grid-column: span 1 !important; /* Override spans for mobile */
-        grid-row: span 1 !important; /* Override spans for mobile */
+        grid-column: span 1 !important; /* Full width per item */
+        grid-row: span 1 !important; /* Single row per item */
         grid-column-start: auto !important;
         grid-row-start: auto !important;
-        aspect-ratio: 1 / 1; /* Square aspect ratio for consistency */
+        aspect-ratio: 1 / 1; /* Square aspect ratio */
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-section {
+        padding: 40px 10px;
+    }
+
+    .gallery-section h2 {
+        font-size: 38px;
+    }
+
+    .gallery-section h2::after {
+        width: 120px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+    }
+
+    .grid-item {
+        aspect-ratio: 4 / 3; /* Adjust aspect ratio for better mobile view */
     }
 }

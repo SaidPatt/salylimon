@@ -1,175 +1,272 @@
+/* /salylimon/css/menu.css */
+
+/* Import variables */
 @import url(vars.css);
 
+/* Menu Section Styles */
 .menu-section {
-    background-color: #000000; 
-    padding: var(--gutter); 
-    min-height: 100vh; 
-    position: relative; 
+    background: #F5F5F5; /* Light gray base for contrast */
+    padding: 70px 30px;
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
-.menu-section::before,
-.menu-section::after {
+/* Subtle papel picado-inspired background pattern */
+.menu-section::before {
     content: '';
     position: absolute;
     top: 0;
+    left: 0;
+    right: 0;
     bottom: 0;
-    width: var(--gutter); 
-    background: linear-gradient(var(--pink), var(--yellow), var(--green), var(--blue));
+    background: url('/salylimon/assets/images/papel-picado-pattern.png') repeat; /* Placeholder for a papel picado pattern */
+    opacity: 0.05; /* Very subtle */
+    z-index: 0;
+}
+
+.section-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
     z-index: 1;
 }
 
-.menu-section::before {
-    left: 0;
-}
-
-.menu-section::after {
-    right: 0;
-}
-
-.menu-section .section-content {
-    background-color: rgba(0, 0, 0, 0.8); 
-    border: 3px solid var(--yellow); 
-    border-radius: 10px;
-    padding: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-    color: #FFFFFF;
-    position: relative;
-    z-index: 2; 
-}
-
 .menu-section h2 {
-    color: var(--pink); 
-    font-family: var(--curly); 
-    font-size: 48px;
+    color: var(--pink);
+    font-family: var(--curly); /* Oleo Script */
+    font-size: 58px;
     text-align: center;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.menu-section h2::after {
+    content: '';
+    display: block;
+    width: 220px;
+    height: 5px;
+    background: linear-gradient(to right, var(--yellow), var(--blue));
+    margin: 10px auto;
+    border-radius: 2px;
 }
 
 .menu-section p {
-    color: #FFFFFF;
-    font-size: 16px;
+    color: #333333; /* Darker gray for readability */
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
+/* Menu Category Styles */
 .menu-category {
-    margin-bottom: 40px;
+    margin-bottom: 60px;
+    position: relative;
 }
 
 .menu-category h3 {
     color: var(--green);
-    font-family: var(--curly); 
-    font-size: 32px;
+    font-family: var(--curly);
+    font-size: 40px;
     text-align: center;
-    margin-bottom: 20px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-    background: linear-gradient(to right, transparent, var(--blue), transparent); 
-    padding: 5px 0;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
 }
 
+.menu-category h3::before,
+.menu-category h3::after {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: url('/salylimon/assets/icons/lime.svg') no-repeat center; /* Placeholder for a lime icon */
+    background-size: contain;
+    vertical-align: middle;
+    margin: 0 10px;
+}
+
+/* Menu Items Grid */
 .menu-items {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
 }
 
+/* Menu Item Styles */
 .menu-item {
-    background-color: #1A1A1A; 
-    border: 2px solid var(--blue); 
-    border-radius: 5px;
-    padding: 15px;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    background: #FFFFFF; /* White for contrast */
+    border: 4px double var(--blue); /* Double border for a tile-like effect */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .menu-item:hover {
-    transform: scale(1.03); 
-    border-color: var(--pink); 
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-color: var(--pink);
 }
 
 .menu-item.special {
     border-color: var(--pink);
-    position: relative;
+    background: #FFF8F9; /* Very light pink for special items */
 }
 
 .menu-item.special::before {
-    content: "Adicional";
+    content: "Especial";
     position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: var(--yellow);
-    color: #000000;
-    padding: 5px 10px;
-    border-radius: 3px;
-    font-size: 12px;
-    font-weight: bold;
+    top: 15px;
+    right: 15px;
+    background: var(--yellow);
+    color: #333333; /* Dark text for contrast on yellow */
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    transform: rotate(10deg);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Add a subtle tile-like border detail */
+.menu-item::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 1px solid var(--green);
+    border-radius: 15px;
+    opacity: 0.3;
+}
+
+.menu-item:hover::after {
+    opacity: 0.5;
 }
 
 .menu-item h4 {
-    color: var(--yellow); 
-    font-family: 'Georgia', serif;
-    font-size: 20px;
+    color: var(--blue);
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    text-align: center;
     margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .menu-item p {
-    color: #FFFFFF;
-    font-size: 14px;
-    margin-bottom: 10px;
-    text-align: left;
+    color: #333333;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 15px;
 }
 
 .menu-item .price {
     display: block;
-    color: var(--pink); 
-    font-weight: bold;
-    font-size: 16px;
-    text-align: right;
+    color: var(--pink);
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
+/* Menu Note Styles */
 .menu-note {
-    color: #FFFFFF;
+    color: #333333;
+    font-family: 'Raleway', sans-serif;
     font-style: italic;
-    font-size: 14px;
+    font-size: 16px;
     text-align: center;
-    margin-top: 30px;
-    background: linear-gradient(to right, var(--pink), var(--yellow)); 
+    margin-top: 50px;
+    background: linear-gradient(to right, var(--pink), var(--yellow));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .menu-section {
-        padding: calc(var(--gutter) / 2); 
-    }
-
-    .menu-section::before,
-    .menu-section::after {
-        width: calc(var(--gutter) / 2); 
-    }
-
-    .menu-section .section-content {
-        padding: 20px;
+        padding: 50px 15px;
     }
 
     .menu-section h2 {
-        font-size: 36px;
+        font-size: 46px;
+    }
+
+    .menu-section h2::after {
+        width: 160px;
     }
 
     .menu-category h3 {
-        font-size: 24px;
+        font-size: 34px;
+    }
+
+    .menu-category h3::before,
+    .menu-category h3::after {
+        width: 25px;
+        height: 25px;
     }
 
     .menu-items {
-        grid-template-columns: 1fr; 
-        gap: 15px;
+        gap: 25px;
     }
 
     .menu-item {
-        padding: 10px;
+        padding: 15px;
+    }
+
+    .menu-item h4 {
+        font-size: 20px;
+    }
+
+    .menu-item p {
+        font-size: 14px;
+    }
+
+    .menu-item .price {
+        font-size: 16px;
+    }
+
+    .menu-note {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-section {
+        padding: 40px 10px;
+    }
+
+    .menu-section h2 {
+        font-size: 38px;
+    }
+
+    .menu-section h2::after {
+        width: 120px;
+    }
+
+    .menu-category h3 {
+        font-size: 28px;
+    }
+
+    .menu-category h3::before,
+    .menu-category h3::after {
+        width: 20px;
+        height: 20px;
     }
 
     .menu-item h4 {
