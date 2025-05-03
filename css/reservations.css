@@ -1,32 +1,16 @@
-/* /salylimon/css/reservations.css */
-
-/* Import variables */
 @import url(vars.css);
 
-/* Reservations Section Styles */
+/* Base Styles */
 .reservations-section {
-    background: #F5F5F5; /* Light gray base for contrast */
-    padding: 70px 30px;
-    position: relative;
+    background: #F5F5F5;
+    padding: 70px 20px;
     min-height: 100vh;
+    position: relative;
     overflow: hidden;
 }
 
-/* Subtle papel picado-inspired background pattern */
-.reservations-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('/salylimon/assets/images/papel-picado-pattern.png') repeat;
-    opacity: 0.05;
-    z-index: 0;
-}
-
 .section-content {
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 auto;
     position: relative;
     z-index: 1;
@@ -34,19 +18,19 @@
 
 .reservations-section h2 {
     color: var(--pink);
-    font-family: var(--curly); /* Oleo Script */
+    font-family: 'Oleo Script', cursive;
     font-size: 58px;
     text-align: center;
-    margin-bottom: 30px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    position: relative;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: bounce 1s ease;
 }
 
 .reservations-section h2::after {
     content: '';
     display: block;
-    width: 220px;
-    height: 5px;
+    width: 180px;
+    height: 4px;
     background: linear-gradient(to right, var(--yellow), var(--blue));
     margin: 10px auto;
     border-radius: 2px;
@@ -56,212 +40,439 @@
     color: #333333;
     font-family: 'Raleway', sans-serif;
     font-size: 18px;
-    font-weight: 300;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
+}
+
+/* Reservation Form */
+.reservation-form {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    border: 3px solid var(--blue);
+}
+
+/* Form Steps */
+.form-step {
+    display: none;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.form-step.active {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.form-step h3 {
+    color: var(--green);
+    font-family: 'Oleo Script', cursive;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 25px;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* Reservation Form Styles */
-.reservation-form {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    margin-bottom: 40px;
-    background: #FFFFFF; /* White tile-like background */
-    border: 4px double var(--blue);
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Add a subtle tile-like border detail */
-.reservation-form::after {
-    content: '';
-    position: absolute;
-    top: -4px;
-    left: -4px;
-    right: -4px;
-    bottom: -4px;
-    border-radius: 15px;
-    opacity: 0.3;
-    z-index: -1;
-}
-
+/* Form Groups */
 .form-group {
-    display: flex;
-    flex-direction: column;
+    margin-bottom: 20px;
 }
 
 .form-group label {
-    color: var(--green);
+    color: var(--blue);
     font-family: 'Raleway', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    display: block;
 }
 
 .form-group input,
-.form-group select,
 .form-group textarea {
-    background: #F9F9F9; /* Light gray for input fields */
+    width: 100%;
+    background: #F9F9F9;
     border: 2px solid var(--blue);
-    border-radius: 5px;
-    padding: 10px;
+    border-radius: 8px;
+    padding: 12px;
     color: #333333;
-    font-size: 16px;
     font-family: 'Raleway', sans-serif;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-size: 16px;
+    transition: border-color 0.3s ease, transform 0.3s ease;
 }
 
 .form-group input:focus,
-.form-group select:focus,
 .form-group textarea:focus {
     border-color: var(--pink);
-    box-shadow: 0 0 5px rgba(224, 23, 158, 0.3); /* Subtle pink glow */
+    transform: scale(1.02);
     outline: none;
 }
 
 .form-group textarea {
     resize: vertical;
+    height: 80px;
 }
 
-.submit-btn {
-    background-color: var(--green);
-    color: #FFFFFF;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 5px;
-    font-size: 18px;
+/* Calendar Picker */
+#reservation-date {
+    cursor: pointer;
+}
+
+.calendar-picker {
+    position: absolute;
+    background: #FFFFFF;
+    border: 2px solid var(--pink);
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    width: auto;
+    animation: pop 0.3s ease;
+}
+
+.calendar-picker.hidden {
+    display: none;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.calendar-month-year {
     font-family: 'Raleway', sans-serif;
     font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    align-self: center;
+    color: var(--pink);
 }
 
-.submit-btn:hover {
-    background-color: var(--pink);
+.calendar-nav {
+    background: var(--yellow);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.calendar-nav:hover {
+    background: var(--pink);
+    transform: scale(1.1);
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    text-align: center;
+}
+
+.calendar-days span {
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    padding: 8px;
+}
+
+.day {
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.day.available {
+    background: var(--green);
+    color: #FFFFFF;
+}
+
+.day.selected {
+    background: var(--pink);
+    color: #FFFFFF;
+    transform: scale(1.2);
+}
+
+.day:hover {
+    background: var(--yellow);
+    color: #333333;
+    transform: scale(1.1);
+}
+
+.day.disabled {
+    background: #CCCCCC;
+    color: #666666;
+    cursor: not-allowed;
+}
+
+/* Party Size Buttons */
+.party-size-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.guest-btn {
+    background: var(--blue);
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.guest-btn:hover {
+    background: var(--yellow);
+    color: #333333;
+    transform: scale(1.15);
+}
+
+.guest-btn.selected {
+    background: var(--pink);
+    transform: scale(1.15);
+}
+
+/* Time Slots */
+.time-slots {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.time-slot {
+    background: var(--blue);
+    color: #FFFFFF;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.time-slot:hover {
+    background: var(--yellow);
+    color: #333333;
     transform: scale(1.05);
 }
 
-/* Reservation Policies Styles */
-.reservation-policies {
+.time-slot.selected {
+    background: var(--pink);
+    transform: scale(1.05);
+}
+
+/* Buttons */
+.next-btn,
+.back-btn,
+.submit-btn {
+    background: var(--green);
+    color: #FFFFFF;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    margin: 10px;
+}
+
+.back-btn {
+    background: var(--blue);
+}
+
+.next-btn:hover,
+.submit-btn:hover {
+    background: var(--pink);
+    transform: scale(1.1);
+}
+
+.back-btn:hover {
+    background: var(--pink);
+    transform: scale(1.1);
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
     background: #FFFFFF;
-    border: 4px double var(--blue);
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    position: relative;
-}
-
-/* Add a subtle tile-like border detail */
-.reservation-policies::after {
-    content: '';
-    position: absolute;
-    top: -4px;
-    left: -4px;
-    right: -4px;
-    bottom: -4px;
-    border: 1px solid var(--green);
-    border-radius: 15px;
-    opacity: 0.3;
-    z-index: -1;
-}
-
-.reservation-policies h3 {
-    color: var(--blue);
-    font-family: var(--curly);
-    font-size: 32px;
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 500px;
     text-align: center;
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    border: 3px solid var(--pink);
+    animation: pop 0.5s ease;
+}
+
+.modal-content h3 {
+    color: var(--pink);
+    font-family: 'Oleo Script', cursive;
+    font-size: 36px;
     margin-bottom: 20px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-.reservation-policies ul {
-    list-style: none;
-    padding: 0;
-}
-
-.reservation-policies li {
+.modal-content p {
     color: #333333;
     font-family: 'Raleway', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 10px;
-    text-align: center;
 }
 
-.reservation-policies li strong {
-    color: var(--pink);
+.reservation-details p {
+    font-weight: 600;
+}
+
+.reservation-details p span {
+    font-weight: 300;
+}
+
+.modal-btn,
+.close-btn {
+    background: var(--green);
+    color: #FFFFFF;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    margin: 10px;
+}
+
+.close-btn {
+    background: var(--blue);
+}
+
+.modal-btn:hover,
+.close-btn:hover {
+    background: var(--pink);
+    transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-100%) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100%) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.confetti {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .reservations-section {
-        padding: 50px 15px;
+        padding: 40px 15px;
     }
 
     .reservations-section h2 {
-        font-size: 46px;
+        font-size: 40px;
     }
 
     .reservations-section h2::after {
-        width: 160px;
+        width: 140px;
     }
 
-    .reservations-section .section-content {
-        padding: 20px;
+    .time-slots {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .reservation-form {
-        padding: 20px;
-    }
-
-    .reservation-policies {
-        padding: 15px;
-    }
-
-    .reservation-policies h3 {
-        font-size: 26px;
-    }
-
-    .form-group label {
-        font-size: 16px;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-        font-size: 14px;
-    }
-
-    .submit-btn {
-        font-size: 16px;
+    .calendar-picker {
+        width: 240px;
     }
 }
 
 @media (max-width: 480px) {
     .reservations-section {
-        padding: 40px 10px;
+        padding: 30px 10px;
     }
 
     .reservations-section h2 {
-        font-size: 38px;
+        font-size: 32px;
     }
 
     .reservations-section h2::after {
-        width: 120px;
+        width: 100px;
     }
 
-    .reservation-form {
-        padding: 15px;
+    .time-slots {
+        grid-template-columns: 1fr;
     }
 
-    .reservation-policies h3 {
-        font-size: 22px;
+    .calendar-picker {
+        width: 200px;
     }
 
-    .reservation-policies li {
+    .calendar-days span {
         font-size: 12px;
+        padding: 6px;
+    }
+
+    .guest-btn {
+        padding: 8px 12px;
+        font-size: 14px;
     }
 }

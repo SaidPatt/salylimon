@@ -3,6 +3,18 @@
 /* Import variables */
 @import url(vars.css);
 
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
 /* Gallery Section Styles */
 .gallery-section {
     background: #F5F5F5; /* Light gray base, consistent with menu and reservations */
@@ -40,6 +52,7 @@
     margin-bottom: 30px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     position: relative;
+    animation: bounce 1s ease; /* Bounce animation for the title */
 }
 
 .gallery-section h2::after {
