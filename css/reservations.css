@@ -441,7 +441,7 @@
     }
 
     .calendar-picker {
-        width: 240px;
+        width: auto;
     }
 }
 
@@ -463,7 +463,7 @@
     }
 
     .calendar-picker {
-        width: 200px;
+        width: auto;
     }
 
     .calendar-days span {
