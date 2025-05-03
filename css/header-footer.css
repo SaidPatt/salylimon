@@ -251,4 +251,17 @@ span.current-page {
         filter: drop-shadow(0 0 15px white);
         transition: 500ms;
     }
+
+    .footer-logo {
+        max-width: 80%;
+    }
+
+    .info-container {
+        flex: 6;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
 }

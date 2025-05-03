@@ -422,6 +422,7 @@
     pointer-events: none;
 }
 
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .reservations-section {
