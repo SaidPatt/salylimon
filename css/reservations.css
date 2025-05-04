@@ -312,7 +312,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 100;
+    z-index: 101;
 }
 
 .modal.hidden {
@@ -329,7 +329,7 @@
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
     border: 3px solid var(--pink);
     animation: pop 0.5s ease;
-    z-index: 100;
+    z-index: 101;
 }
 
 .modal-content h3 {

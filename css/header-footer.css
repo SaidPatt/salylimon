@@ -49,6 +49,7 @@ header{
     background-color: red;
     z-index: 10;
 }
+
 nav {
     position: sticky;
     top: 0;
@@ -59,7 +60,7 @@ nav {
     flex-direction: row;
     border: none; 
     border-bottom: 5px solid var(--pink);
-    z-index: 99;
+    z-index: 50;
 }
 
 nav ul {
