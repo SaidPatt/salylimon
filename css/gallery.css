@@ -46,7 +46,7 @@
 
 .gallery-section h2 {
     color: var(--pink);
-    font-family: 'Pacifico';
+    font-family: var(--curly);
     font-size: 58px;
     text-align: center;
     margin-bottom: 30px;
