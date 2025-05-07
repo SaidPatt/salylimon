@@ -1,18 +1,14 @@
-
-
-/* Import variables */
 @import url(vars.css);
 
-/* General Section Styles */
 .sections-container {
-    background: transparent; /* No background, as per original theme */
-    padding: 0 0 50px 0; /* Match original spacing */
+    background: transparent;
+    padding: 0 0 50px 0;
 }
-/* Typography for All Sections */
+
 .sections-container h2 {
-    color: var(--pink); /* Pink headings */
-    font-family: var(--curly); /* Oleo Script font */
-    font-size: 48px;
+    color: var(--pink);
+    font-family: var(--curly);
+    font-size: clamp(36px, 5vw, 48px);
     text-align: center;
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -21,7 +17,7 @@
 .sections-container h3 {
     color: black;
     font-family: 'Georgia', serif;
-    font-size: 24px;
+    font-size: clamp(20px, 3vw, 24px);
     text-align: center;
     margin-bottom: 15px;
 }
@@ -29,31 +25,32 @@
 .sections-container h4 {
     color: var(--yellow);
     font-family: 'Georgia', serif;
-    font-size: 20px;
+    font-size: clamp(16px, 2.5vw, 20px);
     text-align: center;
     margin-bottom: 10px;
 }
 
 .sections-container p {
-    color: #000000; /* Black text for readability on transparent background */
-    font-size: 16px;
+    color: #000000;
+    font-size: clamp(14px, 2vw, 16px);
     text-align: center;
     margin-bottom: 30px;
 }
 
-/* Carousel Section */
 .carousel-container {
     display: flex;
     width: 100%;
+    flex-wrap: wrap;
 }
 
 .carousel-cont {
     flex: 6;
+    min-width: 300px;
 }
 
 .carousel-image {
     width: 100%;
-    height: 35vw;
+    height: clamp(200px, 35vw, 500px);
     object-fit: cover;
 }
 
@@ -61,34 +58,35 @@
     background-color: var(--green);
     flex: 2;
     text-align: center;
-    padding: 30px;
+    padding: clamp(20px, 3vw, 30px);
     color: #FFFFFF;
+    min-width: 300px;
 }
 
 .carousel-text h3 {
-    color: #FFFFFF; /* White to match original */
+    color: #FFFFFF;
     font-family: 'Georgia', serif;
-    font-size: 32px;
+    font-size: clamp(24px, 3.5vw, 32px);
     margin-bottom: 20px;
 }
 
 .carousel-text h4 {
-    color: #FFFFFF; /* White to match original */
+    color: #FFFFFF;
     font-family: 'Georgia', serif;
-    font-size: 24px;
+    font-size: clamp(18px, 2.5vw, 24px);
     margin-bottom: 15px;
 }
 
 .carousel-text p {
-    color: #FFFFFF; /* White text on green background */
+    color: #FFFFFF;
+    font-size: clamp(14px, 2vw, 16px);
 }
 
 .carousel-text iframe {
     width: 100%;
-    height: 300px;
+    height: clamp(100px, 25vw, 200px); /* Adjusted to scale with carousel images */
 }
 
-/* Promotions Section */
 .promotions-section {
     display: flex;
     flex-direction: column;
@@ -100,11 +98,12 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    gap: 20px;
 }
 
 .promo-card {
     height: auto;
-    width: 20vw;
+    width: clamp(250px, 20vw, 400px);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -113,12 +112,12 @@
     filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.333));
     overflow: hidden;
     justify-content: space-between;
-    transition: height 0.5s ease, width 0.5s ease; 
+    transition: height 0.5s ease, width 0.5s ease;
 }
 
 .promo-card:hover {
     height: auto;
-    width: 33vw;
+    width: clamp(300px, 33vw, 500px);
     flex-direction: column;
     transition: 0.5s ease;
 }
@@ -137,7 +136,7 @@
 }
 
 .promo-card img {
-    height: 10vh;
+    height: clamp(60px, 10vh, 100px);
 }
 
 #easter-promo {
@@ -152,9 +151,8 @@
     background-color: var(--green);
 }
 
-/* Featured Menu Items Section */
 .featured-menu-section {
-    padding: 50px 20px;
+    padding: clamp(30px, 5vw, 50px) 20px;
 }
 
 .menu-items-grid {
@@ -163,11 +161,12 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     margin-bottom: 30px;
+    gap: 20px;
 }
 
 .menu-item {
     height: auto;
-    width: 20vw;
+    width: clamp(250px, 20vw, 400px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -180,24 +179,24 @@
 }
 
 .menu-item:hover {
-    width: 33vw;
+    width: clamp(300px, 33vw, 500px);
     transition: 0.5s ease;
 }
 
 .menu-item img {
     width: 100%;
-    height: 200px;
+    height: clamp(150px, 25vw, 200px);
     object-fit: cover;
     border-radius: 5px;
     margin-bottom: 15px;
 }
 
 .menu-item h3 {
-    color: #FFFFFF; /* White text on colored background */
+    color: #FFFFFF;
 }
 
 .menu-item p {
-    color: #FFFFFF; /* White text on colored background */
+    color: #FFFFFF;
     opacity: 0;
     max-height: 0;
     overflow: hidden;
@@ -217,7 +216,7 @@
     padding: 12px 24px;
     border-radius: 5px;
     text-decoration: none;
-    font-size: 18px;
+    font-size: clamp(16px, 2vw, 18px);
     font-family: 'Georgia', serif;
     margin: 0 auto;
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -228,9 +227,8 @@
     transform: scale(1.05);
 }
 
-/* Testimonials Section */
 .testimonials-section {
-    padding: 50px 20px;
+    padding: clamp(30px, 5vw, 50px) 20px;
 }
 
 .testimonials-grid {
@@ -238,11 +236,12 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    gap: 20px;
 }
 
 .testimonial {
     height: auto;
-    width: 20vw;
+    width: clamp(250px, 20vw, 400px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -255,7 +254,7 @@
 }
 
 .testimonial:hover {
-    width: 33vw;
+    width: clamp(300px, 33vw, 500px);
     transition: 0.5s ease;
 }
 
@@ -273,12 +272,11 @@
 }
 
 .testimonial h4 {
-    color: #000000; /* Black text on yellow background */
+    color: #000000;
 }
 
-/* Location Section */
 .location-section {
-    padding: 50px 20px;
+    padding: clamp(30px, 5vw, 50px) 20px;
 }
 
 .location-details {
@@ -287,6 +285,7 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
+    gap: 20px;
 }
 
 .map-container {
@@ -297,6 +296,7 @@
 
 .map-container iframe {
     width: 100%;
+    height: clamp(200px, 30vw, 400px);
     border-radius: 5px;
 }
 
@@ -310,12 +310,13 @@
 }
 
 .contact-info h3 {
-    color: #FFFFFF; /* White text on pink background */
+    color: #FFFFFF;
 }
 
 .contact-info p {
-    color: #FFFFFF; /* White text on pink background */
+    color: #FFFFFF;
     text-align: left;
+    font-size: clamp(14px, 2vw, 16px);
 }
 
 .contact-info a {
@@ -327,14 +328,13 @@
     text-decoration: underline;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .sections-container {
-        padding: 30px 0;
+        padding: 20px 0;
     }
 
     .sections-container h2 {
-        font-size: 36px;
+        font-size: 40px;
     }
 
     .carousel-container {
@@ -351,24 +351,38 @@
         padding: 20px;
     }
 
-    .carousel-text h3 {
-        font-size: 24px;
-    }
-
-    .carousel-text iframe {
-        height: 200px;
-    }
-
     .promo-card,
     .menu-item,
     .testimonial {
-        width: 80vw;
+        width: clamp(300px, 40vw, 400px);
     }
 
     .promo-card:hover,
     .menu-item:hover,
     .testimonial:hover {
-        width: 90vw;
+        width: clamp(350px, 50vw, 500px);
+    }
+}
+
+@media (max-width: 768px) {
+    .sections-container {
+        padding: 15px 0;
+    }
+
+    .carousel-text {
+        padding: 15px;
+    }
+
+    .promo-card,
+    .menu-item,
+    .testimonial {
+        width: clamp(280px, 80vw, 400px);
+    }
+
+    .promo-card:hover,
+    .menu-item:hover,
+    .testimonial:hover {
+        width: clamp(300px, 90vw, 450px);
     }
 
     .location-details {
@@ -378,5 +392,33 @@
     .map-container,
     .contact-info {
         width: 100%;
+        min-width: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sections-container {
+        padding: 10px 0;
+    }
+
+    .carousel-text {
+        padding: 10px;
+    }
+
+    .promo-card,
+    .menu-item,
+    .testimonial {
+        width: 90vw;
+    }
+
+    .promo-card:hover,
+    .menu-item:hover,
+    .testimonial:hover {
+        width: 95vw;
+    }
+
+    .map-container,
+    .contact-info {
+        min-width: 250px;
     }
 }
