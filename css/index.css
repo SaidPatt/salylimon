@@ -36,7 +36,7 @@ body{
     color: white;
     font-family: var(--curly);
     text-align: center;
-    background-image: linear-gradient(#E93B81, #B6C9F0);
+    background-image: linear-gradient(#E93B81, #ffff00a5);
     /* box-shadow: 4px 0 4px var(--yellow), 0 0 20px  var(--yellow), 0 0 30px var(--yellow); */
     transition: box-shadow 0.3s ease-in-out; 
     margin-left: 50%;
@@ -45,8 +45,6 @@ body{
 h3{
     font-size: clamp(2rem, 3vw, 4rem);
     margin: 0;
-    animation: bounce 5s ease-in-out;
-    animation-iteration-count: infinite;
 }
 #businessName{
     font-size: clamp(1.25rem, 2vw,3rem);
