@@ -140,11 +140,13 @@ nav ul li a {
 .contact-container li a {
     text-decoration: none;
     color: white;
+    align-content: center;
 }
 
 .contact-container li {
     scale: 1;
     transition: 500ms;
+    align-content: center;
 }
 
 .contact-container li:hover:first-child {
