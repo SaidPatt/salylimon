@@ -290,12 +290,17 @@ div audio {
 
     .story figure div {
         padding: 15px;
-        max-width: 90%;
+        width: 80vw;;
         font-size: 14px;
+    }
+
+    .story img {
+        margin-bottom: 20px;
     }
 
     .story:hover figure div {
         font-size: 16px;
+        width: 80vw;
     }
 
     .mission, .vision {
@@ -329,12 +334,17 @@ div audio {
         max-width: 90%;
     }
 
+
+    .story {
+        margin-bottom: 40px;
+    }
+
     .story h3 {
         font-size: 20px;
     }
 
     .story figure {
-        height: 30vh;
+        height: auto;
     }
 
     .story figure div {
@@ -357,4 +367,6 @@ div audio {
     .mission:hover article, .vision:hover article {
         font-size: 1rem;
     }
+
+
 }
