@@ -1,6 +1,11 @@
-// /salylimon/js/reservations.js
-
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize EmailJS with an options object (required for version 4.x.x)
+    (function(){
+        emailjs.init({
+            publicKey: "xhk8M4ulDrnQ-Ljef" // Your EmailJS Public Key
+        });
+    })();
+
     const steps = document.querySelectorAll('.form-step');
     const nextButtons = document.querySelectorAll('.next-btn');
     const backButtons = document.querySelectorAll('.back-btn');
@@ -193,31 +198,52 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Form Submission
+    // Form Submission with Email Sending
     submitButton.addEventListener('click', () => {
         if (validateStep('step-3')) {
-            modal.classList.remove('hidden');
-            document.querySelector('#confirm-date').textContent = reservationData.date;
-            document.querySelector('#confirm-time').textContent = reservationData.time;
-            document.querySelector('#confirm-party-size').textContent = reservationData.partySize;
-            document.querySelector('#confirm-name').textContent = reservationData.name;
-            document.querySelector('#confirm-email').textContent = reservationData.email;
+            // Prepare the email parameters using the reservation data
+            const templateParams = {
+                name: reservationData.name,
+                date: reservationData.date,
+                time: reservationData.time,
+                partySize: reservationData.partySize,
+                email: reservationData.email,
+                phone: reservationData.phone,
+                specialRequests: reservationData.specialRequests || 'None'
+            };
 
-            // Add confetti
-            const confetti = document.querySelector('.confetti');
-            confetti.innerHTML = '';
-            const colors = ['#E0179E', '#FDFF00', '#38E54D', '#2192FF'];
-            for (let i = 0; i < 20; i++) {
-                const confettiPiece = document.createElement('div');
-                confettiPiece.style.position = 'absolute';
-                confettiPiece.style.width = '12px';
-                confettiPiece.style.height = '12px';
-                confettiPiece.style.background = colors[Math.floor(Math.random() * colors.length)];
-                confettiPiece.style.left = `${Math.random() * 100}%`;
-                confettiPiece.style.animation = `confetti-fall ${2 + Math.random()}s infinite`;
-                confettiPiece.style.animationDelay = `${Math.random()}s`;
-                confetti.appendChild(confettiPiece);
-            }
+            // Send the email using EmailJS
+            emailjs.send("service_7dlrhnh", "template_yhll7yt", templateParams)
+                .then((response) => {
+                    console.log('Email sent successfully:', response.status, response.text);
+
+                    // Show the confirmation modal after email is sent
+                    modal.classList.remove('hidden');
+                    document.querySelector('#confirm-date').textContent = reservationData.date;
+                    document.querySelector('#confirm-time').textContent = reservationData.time;
+                    document.querySelector('#confirm-party-size').textContent = reservationData.partySize;
+                    document.querySelector('#confirm-name').textContent = reservationData.name;
+                    document.querySelector('#confirm-email').textContent = reservationData.email;
+
+                    // Add confetti
+                    const confetti = document.querySelector('.confetti');
+                    confetti.innerHTML = '';
+                    const colors = ['#E0179E', '#FDFF00', '#38E54D', '#2192FF'];
+                    for (let i = 0; i < 20; i++) {
+                        const confettiPiece = document.createElement('div');
+                        confettiPiece.style.position = 'absolute';
+                        confettiPiece.style.width = '12px';
+                        confettiPiece.style.height = '12px';
+                        confettiPiece.style.background = colors[Math.floor(Math.random() * colors.length)];
+                        confettiPiece.style.left = `${Math.random() * 100}%`;
+                        confettiPiece.style.animation = `confetti-fall ${2 + Math.random()}s infinite`;
+                        confettiPiece.style.animationDelay = `${Math.random()}s`;
+                        confetti.appendChild(confettiPiece);
+                    }
+                }, (error) => {
+                    console.error('Failed to send email:', error);
+                    alert('There was an error sending the confirmation email. Please try again later. Error: ' + JSON.stringify(error));
+                });
         }
     });
 
